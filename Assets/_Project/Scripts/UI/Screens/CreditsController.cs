@@ -1,0 +1,14 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class CreditsController : MonoBehaviour
+{
+    [SerializeField] private Button backButton;
+    
+    public void Initialize(UIManager uiManager)
+    {
+        backButton.onClick.AddListener(() => uiManager.ChangeState(new MainMenuState()));
+    }
+    
+    private void OnDestroy() => backButton.onClick.RemoveAllListeners();
+}
